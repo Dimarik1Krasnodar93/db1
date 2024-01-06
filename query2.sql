@@ -1,5 +1,5 @@
 SELECT 
-transaction.created_on date_trunc,
+DATE_TRUNC('day', transaction.created_on) date_trunc,
 transaction.client_id client_id,
 SUM(CASE WHEN transaction.amount > 0 THEN transaction.amount ELSE 0 END) debit,
 SUM(CASE WHEN transaction.amount < 0 THEN transaction.amount ELSE 0 END) credit
